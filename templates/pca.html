@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pca</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{{ url_for('static', filename='background1.jpg') }}"); /* Adjust path to your background image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            min-height: 100vh;
+        }
+        .message-container {
+            max-width: 800px;
+            width: 100%;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .message-container h1 {
+            margin: 20px;
+            font-size: 2rem;
+            color: black;
+        }
+	.message-container h2 {
+            margin: 0 0 0;
+            font-size: 1.3rem;
+            color: black;
+        }
+        .message-container p {
+            margin: 10px 20px 10px;
+            font-size: 1.1rem;
+            color: black;
+	    text-align: left;
+        }
+	.add-bullet::before {
+            content: '\2022'; /* Unicode for bullet symbol */
+            margin-right: 5px; /* Space between symbol and text */
+	}
+	.button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #A9A9A9;
+            color: black;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .button-container button:hover {
+            background-color: #808080;
+        }
+	.footer {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: black;
+        }
+	.footer a {
+            color: black;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+	}
+    </style>
+</head>
+<body>
+    <div class="message-container">
+        <h1>Principal Component Analysis</h1>
+        <p>
+		<strong>PCA (Principal Component Analysis):</strong> PCA is a statistical procedure that transforms 
+		a set of correlated variables into a smaller set of uncorrelated variables called 
+		principal components. These components capture the maximum variance present in the data, 
+		allowing the most important patterns and relationships to be highlighted while reducing the 
+		complexity of the dataset.
+	</p><br>
+	<h2>Key Points</h2><br>
+	<p>
+		
+		<strong class="add-bullet">Dimensionality Reduction:</strong> PCA reduces the number of variables (or dimensions) in a dataset while 
+		retaining as much of the variance as possible.<br><br>
+		<strong class="add-bullet">Uncorrelated Components:</strong> The principal components are orthogonal (uncorrelated), which helps in simplifying the 
+		relationships among variables.<br><br>
+		<strong class="add-bullet">Variance Maximization:</strong> PCA identifies the directions (principal axes) along which the variance of the data is maximal.<br><br>
+		<strong class="add-bullet">Applications:</strong> Used in data preprocessing, visualization, feature extraction, and noise reduction in various fields 
+		including image processing, genetics, and finance.<br>
+	</p><br>
+	<p>
+		PCA is a fundamental tool for data preprocessing and feature extraction, enabling more efficient and effective analysis of high-dimensional datasets.
+	</p><br>
+	<h2>PCA in Image Compression</h2><br>
+	<p>
+		In the context of image compression, PCA can be used to reduce the number of variables (pixels) while preserving as much of the original image information (variance) as possible.
+	</p><br>
+	<h2>Advantages of PCA in Image Compression</h2><br>
+	<p>
+		<strong class="add-bullet">Reduction in Storage Space:</strong> By representing the image with fewer components, PCA significantly reduces the amount of data 
+		needed to store the image, achieving compression.<br><br>
+		<strong class="add-bullet">Preservation of Important Features:</strong> PCA focuses on retaining the most significant features (variance) of the image, ensuring that the 
+		compressed image maintains essential visual information.<br><br>
+		<strong class="add-bullet">Noise Reduction:</strong> By discarding less significant components (those with small eigenvalues), PCA can help in reducing noise present in the image data.<br><br>
+		<strong class="add-bullet">Computational Efficiency:</strong> Working with a reduced set of components makes subsequent image processing tasks faster and more efficient.<br>
+	</p><br><br>
+	<div class="button-container">
+		<a href="{{ url_for('technique') }}"><button>Back</button></a>
+        </div>
+    </div>
+    <div class="footer">
+	&copy; <a href="{{ url_for('technique') }}">2024 Sahil Khair.</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svd</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{{ url_for('static', filename='background1.jpg') }}"); /* Adjust path to your background image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            min-height: 100vh;
+        }
+        .message-container {
+            max-width: 800px;
+            width: 100%;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .message-container h1 {
+            margin: 20px;
+            font-size: 2rem;
+            color: black;
+        }
+	.message-container h2 {
+            margin: 0 0 0;
+            font-size: 1.3rem;
+            color: black;
+        }
+        .message-container p {
+            margin: 10px 20px 10px;
+            font-size: 1.1rem;
+            color: black;
+	    text-align: left;
+        }
+	.add-bullet::before {
+            content: '\2022'; /* Unicode for bullet symbol */
+            margin-right: 5px; /* Space between symbol and text */
+	}
+	.button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #A9A9A9;
+            color: black;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .button-container button:hover {
+            background-color: #808080;
+        }
+	.footer {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: black;
+        }
+	.footer a {
+            color: black;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+	}
+    </style>
+</head>
+<body>
+    <div class="message-container">
+        <h1>Singular Value Decomposition</h1>
+        <p>
+		<strong>SVD (Singular Value Decomposition):</strong> SVD is a fundamental technique in linear algebra that decomposes a matrix into three 
+		other matrices, making it easier to analyze the properties of the original matrix.
+	</p><br>
+	<h2>Key Points</h2><br>
+	<p>
+		
+		<strong class="add-bullet">Decomposition:</strong> SVD decomposes a matrix 𝐴 into three matrices 
+		𝑈, Σ, and V<sup>T</sup>. This decomposition provides insights into the structure and properties of 𝐴.<br><br>
+		<strong class="add-bullet">Orthogonality:</strong> The matrices 𝑈 and 𝑉 are orthogonal, meaning their columns 
+		form orthonormal bases. This property ensures that 𝑈 and 𝑉 preserve the geometric structure of the data.<br><br>
+		<strong class="add-bullet">Singular Values:</strong> The diagonal elements of Σ are called singular values. They are 
+		non-negative and are usually arranged in descending order. These values provide a measure of the importance of each 
+		corresponding singular vector.<br><br>
+		<strong class="add-bullet">Dimensionality Reduction:</strong> SVD is often used to reduce the dimensionality of data. 
+		By retaining only the top 𝑘 singular values and their corresponding singular vectors, one can approximate the original matrix 
+		with a lower rank matrix, capturing the most significant features of the data.<br>
+	</p><br>
+	<p>
+		By decomposing a matrix into these three components, SVD provides a powerful tool for understanding and manipulating data in various fields.
+	</p><br>
+	<h2>SVD in Image Compression</h2><br>
+	<p>
+		Singular Value Decomposition (SVD) is an effective method for image compression due to its ability to reduce the dimensionality of the data 
+		while preserving its essential features. The process involves decomposing the image matrix into three matrices and then truncating these matrices to achieve compression. 
+	</p><br>
+	<h2>Advantages of SVD in Image Compression</h2><br>
+	<p>
+		<strong class="add-bullet">Efficient Storage:</strong> By retaining only the most significant singular values and their corresponding singular vectors, the 
+		storage requirement is significantly reduced. This is particularly useful for large images.<br><br>
+		<strong class="add-bullet">Noise Reduction:</strong> Truncating small singular values can filter out noise and less significant details, resulting in a 
+		cleaner image. This makes SVD effective in denoising images.<br><br>
+		<strong class="add-bullet">Flexibility:</strong> The level of compression can be easily adjusted by varying the number of singular values retained. This 
+		allows a balance between the compression ratio and image quality, depending on the specific requirements.<br><br>
+		<strong class="add-bullet">Theoretical Foundations:</strong> SVD is based on strong mathematical foundations, ensuring stability and robustness in the 
+		compression process. The orthogonality of 𝑈 and 𝑉 ensures that the geometric structure of the data is preserved.<br>
+	</p><br><br>
+	<div class="button-container">
+		<a href="{{ url_for('technique') }}"><button>Back</button></a>
+        </div>
+    </div>
+    <div class="footer">
+	&copy; <a href="{{ url_for('technique') }}">2024 Sahil Khair.</a>
+    </div>
+</body>
+</html>

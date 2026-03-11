@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{{ url_for('static', filename='background1.jpg') }}"); /* Adjust path to your background image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            min-height: 100vh;
+        }
+        .message-container {
+            max-width: 800px;
+            width: 100%;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .message-container h1 {
+            margin: 20px;
+            font-size: 2rem;
+            color: black;
+        }
+	.message-container h2 {
+            margin: 0 0 0;
+            font-size: 1.3rem;
+            color: black;
+        }
+        .message-container p {
+            margin: 10px 20px 10px;
+            font-size: 1.1rem;
+            color: black;
+	    text-align: left;
+        }
+	.add-bullet::before {
+            content: '\2022'; /* Unicode for bullet symbol */
+            margin-right: 5px; /* Space between symbol and text */
+	}
+	.button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #A9A9A9;
+            color: black;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .button-container button:hover {
+            background-color: #808080;
+        }
+	.footer {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: black;
+        }
+	.footer a {
+            color: black;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+	}
+    </style>
+</head>
+<body>
+    <div class="message-container">
+        <h1>Independent Component Analysis</h1>
+        <p>
+		<strong>ICA (Independent Component Analysis):</strong> ICA is a computational method used to separate a multivariate signal 
+		into additive, independent non-Gaussian components. This technique is particularly useful for finding underlying factors or sources when 
+		the observed data are mixtures of these sources. ICA assumes that the observed signals are linear combinations of statistically independent source signals.
+	</p><br>
+	<h2>Key Points</h2><br>
+	<p>
+		
+		<strong class="add-bullet">Linear Mixture:</strong> ICA assumes that the observed data 𝑋 is a linear mixture of independent components 
+		𝑆: 𝑋 = 𝐴𝑆 Here, 𝑋 is the observed data matrix, 𝑆 is the matrix of source signals, and 𝐴 is the mixing matrix.<br><br>
+		<strong class="add-bullet">Statistical Independence:</strong> The primary goal of ICA is to find the independent components 𝑆 such that each component 
+		is statistically independent of the others.<br><br>
+		<strong class="add-bullet">Non-Gaussianity:</strong> ICA exploits the non-Gaussianity of the source signals. The central limit theorem suggests that a 
+		sum of independent random variables tends towards a Gaussian distribution; thus, non-Gaussianity is a key to identifying the independent components.<br><br>
+		<strong class="add-bullet">Applications:</strong> ICA is widely used in signal processing, particularly for blind source separation (BSS) problems like 
+		separating mixed audio signals, feature extraction in machine learning, and medical signal processing (e.g., EEG and fMRI analysis).<br>
+	</p><br>
+	<p>
+		By leveraging the statistical independence of source signals, ICA provides a robust method for decomposing mixed signals into their original, independent 
+		components, making it invaluable in fields requiring signal separation and feature extraction.
+	</p><br>
+	<h2>ICA in Image Compression</h2><br>
+	<p>
+		Independent Component Analysis (ICA) can be applied to image compression as a technique to reduce the dimensionality of the image data while preserving important features. 
+		Unlike traditional methods like JPEG compression, which rely on frequency domain transformations (such as Discrete Cosine Transform), ICA focuses on finding statistically 
+		independent components within the image data.
+	</p><br>
+	<h2>Advantages of ICA in Image Compression</h2><br>
+	<p>
+		<strong class="add-bullet">Statistical Independence:</strong> ICA decomposes an image into statistically independent components, which can capture different underlying factors or features of the image. 
+		This approach can lead to more effective compression by focusing on meaningful components rather than individual pixels.<br><br>
+		<strong class="add-bullet">Feature Extraction:</strong> ICA can identify underlying features or patterns in an image. By decomposing the image into independent components, 
+		ICA extracts features that are crucial for representing the image content effectively.<br><br>
+		<strong class="add-bullet">Non-Gaussian Data Handling:</strong> Unlike traditional methods that assume Gaussian distributions (e.g., JPEG compression with Discrete Cosine Transform), ICA is effective for 
+		handling non-Gaussian data. This flexibility allows ICA to capture more complex relationships and structures in the image data.<br><br>
+		<strong class="add-bullet">Noise Reduction:</strong> ICA separates the image into independent components, which can help in isolating noise components from the signal. By focusing on 
+		significant components and reducing noise interference, ICA-based compression methods can produce clearer and more accurate representations of the original image.<br>
+	</p><br><br>
+	<div class="button-container">
+		<a href="{{ url_for('technique') }}"><button>Back</button></a>
+        </div>
+    </div>
+    <div class="footer">
+	&copy; <a href="{{ url_for('technique') }}">2024 Sahil Khair.</a>
+    </div>
+</body>
+</html>
