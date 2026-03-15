@@ -51,14 +51,14 @@ The study evaluated performance across different image resolutions (256x256, 512
 ---
 
 ##Project StructurePlain
-'''text
+```
 ├── app.py              # Main Flask application & Logic
 ├── static/             # CSS and Image assets
 ├── templates/          # HTML Frontend
 ├── docs/               # Research paper and documentation (PDF)
 ├── requirements.txt    # List of dependencies
 └── README.md           # Project overview
-
+```
 ---
 
 ##Installation & Usage
